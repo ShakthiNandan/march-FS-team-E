@@ -5,7 +5,7 @@ Shakthi Nandan P
 
 Team Members:
 Kaarunya K
-Somwya K
+Sowmya K
 Shivani S
 Melani Angel Meffy
 Mirthul S
