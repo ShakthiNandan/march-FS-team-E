@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Profile Card Generator</title>
+  <style>
+    /* Global styles */
+    body {
+      background-color: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #24292e;
+    }
+    /* Form styling */
+    form {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(27,31,35,0.12);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+    /* Profile card styling */
+    .card {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(27,31,35,0.12);
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid #e1e4e8;
+    }
+    .card h2 {
+      margin: 10px 0 5px;
+      color: #24292e;
+    }
+    .card p {
+      margin: 0;
+      color: #586069;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GitHub Profile Card Generator</h1>
+    <form id="profileForm">
+      <input type="text" id="name" placeholder="Enter your name" required>
+      <input type="text" id="githubUsername" placeholder="Enter your GitHub username" required>
+      <input type="submit" value="Generate Profile Card">
+    </form>
+    <div id="profileCard" class="card" style="display:none;">
+      <img id="profileImage" src="" alt="GitHub Avatar">
+      <h2 id="displayName"></h2>
+      <p id="displayUsername"></p>
+    </div>
+  </div>
+
+  <script>
+    // Handle the form submission to generate the profile card
+    document.getElementById('profileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const username = document.getElementById('githubUsername').value;
+      
+      // Use GitHub's avatar URL structure to load the profile image
+      const avatarUrl = `https://github.com/${username}.png`;
+
+      // Update the card content
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displayUsername').textContent = '@' + username;
+      document.getElementById('profileImage').src = avatarUrl;
+      
+      // Show the profile card
+      document.getElementById('profileCard').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+<!-- run code with 
+ python3 -m http.server for linux
+ python -m http.server for windows  -->
